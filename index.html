@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BusTrack - Smart Bus Tracking</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Leaflet map library -->
+    <link rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">🚌 BusTrack</div>
+
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+    <nav id="navbar">
+        <a href="#home" class="active">Home</a>
+        <a href="#tracking">Live Tracking</a>
+        <a href="#routes">Routes</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<main>
+
+<!-- HOME PAGE -->
+<section id="home" class="page active">
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Track Your Bus.<br>
+                Travel Smarter.</h1>
+
+            <p>
+                Welcome to BusTrack! Find your bus, check its
+                location and plan your journey with ease.
+            </p>
+
+            <a href="#tracking" class="btn">Track Your Bus →</a>
+            <a href="#routes" class="btn secondary">Explore Routes</a>
+        </div>
+
+        <div class="hero-image">🚌</div>
+    </div>
+
+    <h2 class="section-title">Why Choose BusTrack?</h2>
+
+    <div class="cards">
+        <div class="card">
+            <span>📍</span>
+            <h3>Live Tracking</h3>
+            <p>View demo bus positions on an interactive map.</p>
+        </div>
+
+        <div class="card">
+            <span>⏰</span>
+            <h3>Bus Timings</h3>
+            <p>Check bus schedules and estimated arrival times.</p>
+        </div>
+
+        <div class="card">
+            <span>🛣️</span>
+            <h3>Easy Routes</h3>
+            <p>Explore available routes and bus stops.</p>
+        </div>
+    </div>
+</section>
+
+<!-- TRACKING PAGE -->
+<section id="tracking" class="page">
+    <h1>Live Bus Tracking</h1>
+    <p class="subtitle">Find your bus location on the map.</p>
+
+    <div class="search-box">
+        <input type="text" id="busSearch"
+          placeholder="Enter bus number (e.g. BUS101)">
+        <button class="btn" onclick="trackBus()">Track Bus</button>
+    </div>
+
+    <div id="map"></div>
+
+    <div class="card tracking-info" id="trackingInfo">
+        <h3>Bus Information</h3>
+        <p>Select a bus to see its demo location.</p>
+    </div>
+</section>
+
+<!-- ROUTES PAGE -->
+<section id="routes" class="page">
+    <h1>Available Bus Routes</h1>
+    <p class="subtitle">Choose your preferred journey.</p>
+
+    <div class="cards">
+        <div class="card route-card">
+            <h3>🚌 BUS101</h3>
+            <p>Mangalore → Ullal</p>
+            <p>Stops: Pumpwell, Thokkottu, Ullal</p>
+            <span class="status">Available</span>
+        </div>
+
+        <div class="card route-card">
+            <h3>🚌 BUS102</h3>
+            <p>Mangalore → Deralakatte</p>
+            <p>Stops: Kankanady, Konaje, Deralakatte</p>
+            <span class="status">Available</span>
+        </div>
+
+        <div class="card route-card">
+            <h3>🚌 BUS103</h3>
+            <p>Ullal → Mangalore</p>
+            <p>Stops: Thokkottu, Pumpwell, State Bank</p>
+            <span class="status">Available</span>
+        </div>
+    </div>
+</section>
+
+<!-- SCHEDULE PAGE -->
+<section id="schedule" class="page">
+    <h1>Bus Schedule</h1>
+    <p class="subtitle">Check available bus timings.</p>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Bus Number</th>
+                    <th>Starting Point</th>
+                    <th>Destination</th>
+                    <th>Departure</th>
+                    <th>Arrival</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>BUS101</td>
+                    <td>Mangalore</td>
+                    <td>Ullal</td>
+                    <td>08:00 AM</td>
+                    <td>08:45 AM</td>
+                </tr>
+
+                <tr>
+                    <td>BUS102</td>
+                    <td>Mangalore</td>
+                    <td>Deralakatte</td>
+                    <td>09:00 AM</td>
+                    <td>09:40 AM</td>
+                </tr>
+
+                <tr>
+                    <td>BUS103</td>
+                    <td>Ullal</td>
+                    <td>Mangalore</td>
+                    <td>10:00 AM</td>
+                    <td>10:45 AM</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- ABOUT PAGE -->
+<section id="about" class="page">
+    <h1>About BusTrack</h1>
+
+    <div class="about-content">
+        <div class="about-icon">🚌</div>
+
+        <h2>Smart and Simple Bus Tracking</h2>
+
+        <p>
+            BusTrack is a bus tracking website designed to make
+            public transportation easier and more convenient.
+            It helps passengers explore routes, check schedules
+            and view bus locations.
+        </p>
+
+        <p>
+            Our goal is to improve the travel experience by
+            providing accessible transportation information
+            through a simple and user-friendly platform.
+        </p>
+    </div>
+</section>
+
+<!-- CONTACT PAGE -->
+<section id="contact" class="page">
+    <h1>Contact Us</h1>
+    <p class="subtitle">Have a question? Send us a message.</p>
+
+    <form id="contactForm" class="contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <input type="text" placeholder="Subject" required>
+        <textarea placeholder="Write your message..." required></textarea>
+
+        <button class="btn" type="submit">Send Message →</button>
+    </form>
+
+    <p id="formMessage"></p>
+</section>
+
+</main>
+
+<footer>
+    <p>© 2026 BusTrack | Smart Bus Tracking System</p>
+    <p>Travel Smart. Travel Safe. 🚌</p>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

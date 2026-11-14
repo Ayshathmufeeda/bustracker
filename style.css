@@ -1,0 +1,403 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f3f7fc;
+    color: #1d2b42;
+}
+
+/* HEADER */
+
+header {
+    background: #082b55;
+    color: white;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 15px #0002;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #48d5ff;
+}
+
+nav {
+    display: flex;
+    gap: 22px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    transition: 0.3s;
+    padding: 8px 4px;
+}
+
+nav a:hover,
+nav a.active {
+    color: #48d5ff;
+    border-bottom: 2px solid #48d5ff;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 25px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* PAGE SECTIONS */
+
+.page {
+    display: none;
+    padding: 55px 8%;
+    min-height: 75vh;
+    animation: fadeIn 0.5s ease;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* HERO SECTION */
+
+.hero {
+    background: linear-gradient(120deg, #082b55, #087bb9);
+    color: white;
+    border-radius: 22px;
+    padding: 70px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    min-height: 390px;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.hero-image {
+    font-size: 140px;
+    animation: moveBus 3s infinite ease-in-out;
+}
+
+@keyframes moveBus {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(18px); }
+}
+
+/* BUTTONS */
+
+.btn {
+    display: inline-block;
+    background: #00b8e6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 13px 23px;
+    text-decoration: none;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 5px;
+}
+
+.btn:hover {
+    background: #007da8;
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 8px 20px #0003;
+}
+
+.btn:active {
+    transform: scale(0.96);
+}
+
+.secondary {
+    background: transparent;
+    border: 2px solid white;
+}
+
+/* HEADINGS */
+
+h1 {
+    color: #082b55;
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    color: white;
+}
+
+.subtitle {
+    color: #69788e;
+    margin-bottom: 30px;
+}
+
+.section-title {
+    text-align: center;
+    margin: 50px 0 25px;
+}
+
+/* CARDS */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.card {
+    background: white;
+    padding: 28px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px #1231;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px #1232;
+}
+
+.card span:first-child {
+    font-size: 35px;
+}
+
+.card h3 {
+    color: #087bb9;
+    margin: 15px 0;
+}
+
+.card p {
+    color: #64748b;
+    line-height: 1.7;
+}
+
+.status {
+    display: inline-block;
+    margin-top: 15px;
+    background: #d9fbe7;
+    color: #13834c;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+/* SEARCH */
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin: 25px 0;
+    flex-wrap: wrap;
+}
+
+input, textarea {
+    padding: 14px;
+    border: 1px solid #ccd6e2;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    width: 100%;
+}
+
+.search-box input {
+    flex: 1;
+    min-width: 180px;
+}
+
+input:focus, textarea:focus {
+    border-color: #00a9df;
+    box-shadow: 0 0 5px #00a9df55;
+}
+
+/* MAP */
+
+#map {
+    height: 380px;
+    width: 100%;
+    border-radius: 15px;
+    margin: 25px 0;
+    z-index: 1;
+}
+
+.tracking-info {
+    margin-top: 20px;
+}
+
+/* TABLE */
+
+.table-container {
+    overflow-x: auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px #1231;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+th, td {
+    padding: 18px;
+    text-align: center;
+    border-bottom: 1px solid #e3eaf2;
+}
+
+th {
+    background: #082b55;
+    color: white;
+}
+
+tr:hover {
+    background: #eaf7ff;
+}
+
+/* ABOUT */
+
+.about-content {
+    text-align: center;
+    background: white;
+    padding: 50px;
+    margin-top: 30px;
+    border-radius: 18px;
+    line-height: 1.9;
+    box-shadow: 0 5px 20px #1231;
+}
+
+.about-icon {
+    font-size: 90px;
+    margin-bottom: 20px;
+}
+
+.about-content h2 {
+    color: #087bb9;
+    margin-bottom: 20px;
+}
+
+/* CONTACT */
+
+.contact-form {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 30px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px #1231;
+}
+
+textarea {
+    height: 130px;
+    resize: vertical;
+}
+
+#formMessage {
+    text-align: center;
+    color: green;
+    margin-top: 15px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #082b55;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    line-height: 2;
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media(max-width: 850px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        background: #082b55;
+        padding: 20px 7%;
+        gap: 15px;
+    }
+
+    nav.show {
+        display: flex;
+        animation: fadeIn 0.3s;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 45px 20px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero-image {
+        font-size: 90px;
+    }
+
+    .page {
+        padding: 35px 5%;
+    }
+
+    .about-content {
+        padding: 25px;
+    }
+}
